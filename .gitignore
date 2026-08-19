@@ -5,4 +5,3 @@ __pycache__/
 *.pyc
 .tech-venv/
 tech-venv/
-secrets.toml.example
