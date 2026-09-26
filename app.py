@@ -7,7 +7,7 @@ from techbot import ask_local_techrag,get_llm,get_embeddings
 from memory import init_memory,get_memory_context,update_memory
 import shutil
 
-DB_DIR = os.path.join(tempfile.gettempdir(), "tech_db")
+DB_DIR = "./tech_db"
 DOC_DIR = "document"
 
 if "vector_db_ready" not in st.session_state:
