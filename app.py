@@ -2,7 +2,7 @@ import os
 import time
 import streamlit as st
 from data_processing import extract_text_from_pdf,extract_text_from_txt,build_vector_database,chunk_document_text
-from helper import reset_application
+from helper import reset_application, wipe_vector_db
 from techbot import ask_local_techrag,get_llm,get_embeddings
 from memory import init_memory,get_memory_context,update_memory
 import shutil
@@ -21,8 +21,8 @@ def check_for_existing_files(folder_path = DOC_DIR):
 
 if st.session_state["vector_db_ready"] and not check_for_existing_files():
     st.session_state["vector_db_ready"] = False
-    shutil.rmtree(DB_DIR)
-
+    wipe_vector_db(DB_DIR)
+    
 st.set_page_config(page_title = "Tech Support Agent",page_icon ="👩🏻‍💻")
 st.title("Tech Support Agent 👩🏻‍💻")
 
